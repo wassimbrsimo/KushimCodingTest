@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {Convert, getWeeklyConversions} from '../api/API';
 import Chart from '../components/Chart';
-import {cardStyle, colors, styles} from '../theme/theme';
+import {ButtonStyle, cardStyle, colors, styles} from '../theme/theme';
 
 export default function Home() {
   const [selectedFromCurrency, setSelectedFromCurrency] = useState('EUR');
@@ -17,19 +17,20 @@ export default function Home() {
   const [Result, setResult] = useState(0);
   const [Data, setData] = useState(null);
   const [Loading, setLoading] = useState(false);
-  const [Error, setError] = useState('');
+  const [Error, setError] = useState(null);
   const Currencies = ['USD', 'EUR', 'RSD'];
 
   const onConvert = () => {
     // init conversion weekly data first then the actual result
     setLoading(true);
+    setError(null);
     getWeeklyConversions(
       selectedFromCurrency,
       selectedToCurrency,
       ({err, res}) => {
         if (err) {
           setLoading(false);
-          return setError(true);
+          return setError(err);
         }
         populateData(res.rates);
 
@@ -40,7 +41,7 @@ export default function Home() {
           ({error, response}) => {
             if (error) {
               setLoading(false);
-              return setError(true);
+              return setError(err);
             }
 
             setResult(response.result.toFixed(2));
@@ -84,13 +85,13 @@ export default function Home() {
       <Text style={styles.conversion}>
         {Value} {selectedFromCurrency}
       </Text>
-      <Text style={styles.error}>{Error}</Text>
+      {Error && <Text style={styles.error}>{Error.info}</Text>}
       {!Error && (
         <Text style={styles.result}>
           {Result} {selectedToCurrency}
         </Text>
       )}
-
+      <Text style={styles.lightText}>From</Text>
       <View style={styles.row}>
         {
           // Selecting the currency to convert from
@@ -112,6 +113,7 @@ export default function Home() {
           ))
         }
       </View>
+      <Text style={styles.lightText}>To</Text>
       <View style={styles.row}>
         {
           // Selecting the currency to convert to
@@ -139,12 +141,20 @@ export default function Home() {
           ))
         }
       </View>
-      <TextInput style={styles.input} onChangeText={setValue} value={Value} />
+      <TextInput
+        placeholder="Enter a value to convert"
+        style={styles.input}
+        placeholderTextColor={colors.lightBackground}
+        onChangeText={setValue}
+        value={Value}
+      />
       <TouchableOpacity
         disabled={!selectedToCurrency}
         onPress={onConvert}
-        style={styles.button}>
-        <Text style={styles.buttonText}>Convert</Text>
+        style={ButtonStyle(Value && selectedToCurrency).button}>
+        <Text style={ButtonStyle(Value && selectedToCurrency).buttonText}>
+          Convert
+        </Text>
       </TouchableOpacity>
     </View>
   );

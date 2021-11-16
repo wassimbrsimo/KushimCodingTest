@@ -34,7 +34,9 @@ export const styles = StyleSheet.create({
     height: 220,
   },
   error: {
-    fontSize: 20,
+    fontSize: 12,
+    margin: 20,
+    textAlign: 'center',
     fontWeight: 'bold',
     color: colors.error,
     alignSelf: 'center',
@@ -48,25 +50,32 @@ export const styles = StyleSheet.create({
     margin: 20,
     justifyContent: 'center',
   },
+  lightText: {alignSelf: 'center', color: colors.lightBackground},
   conversion: {
     fontSize: 14,
     fontWeight: 'bold',
     color: colors.secondary,
     alignSelf: 'center',
   },
-  button: {
-    backgroundColor: colors.secondary,
-    padding: 20,
-    margin: 20,
-    borderRadius: 20,
-    alignItems: 'center',
-  },
-  buttonText: {fontWeight: 'bold', color: colors.forground},
   chartStyle: {
     borderRadius: 20,
     alignSelf: 'center',
   },
 });
+export const ButtonStyle = active =>
+  StyleSheet.create({
+    button: {
+      backgroundColor: active ? colors.secondary : colors.lightBackground,
+      padding: 20,
+      margin: 20,
+      borderRadius: 20,
+      alignItems: 'center',
+    },
+    buttonText: {
+      fontWeight: active ? 'bold' : 'normal',
+      color: colors.forground,
+    },
+  });
 
 export const cardStyle = (selected, disabled) =>
   StyleSheet.create({

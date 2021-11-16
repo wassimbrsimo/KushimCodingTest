@@ -33,7 +33,7 @@ export async function getWeeklyConversions(from, to, callback) {
     )
     .then(function (response) {
       // handle success
-      callback({res: response.data});
+      callback({err: response.data.error, res: response.data});
     })
     .catch(function (error) {
       // handle error
@@ -55,7 +55,7 @@ export async function Convert(from, to, value, callback) {
     )
     .then(function (response) {
       // handle success
-      callback({response: response.data});
+      callback({error: response.data.error, response: response.data});
     })
     .catch(function (error) {
       // handle error

@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 export const colors = {
-  background: 'black',
+  background: '#222',
   lightBackground: '#6b6b6b',
   accent: '#7F95FD',
   forground: '#F3F6FF',
@@ -8,30 +8,34 @@ export const colors = {
   error: 'red',
 };
 export const styles = StyleSheet.create({
-  container: {flex: 1, justifyContent: 'flex-end'},
+  container: {flex: 1, justifyContent: 'space-between'},
   row: {
     flexDirection: 'row',
     justifyContent: 'center',
     marginHorizontal: '10%',
-    height: 100,
+  },
+  resultView: {flex: 1, justifyContent: 'center'},
+  inputsView: {
+    flex: 2,
+    justifyContent: 'flex-end',
+    backgroundColor: colors.background,
   },
   input: {
     backgroundColor: colors.forground,
     borderRadius: 20,
-    height: 60,
+    padding: 20,
     margin: 20,
     borderWidth: 1,
-    padding: 10,
+    color: colors.background,
   },
   result: {
-    flex: 1,
     fontSize: 40,
     fontWeight: 'bold',
     color: colors.forground,
     alignSelf: 'center',
   },
   activityIndicator: {
-    height: 220,
+    height: '28%',
   },
   error: {
     fontSize: 12,
@@ -43,10 +47,10 @@ export const styles = StyleSheet.create({
   },
   conversionView: {
     alignSelf: 'center',
-    height: 30,
     borderRadius: 20,
-    backgroundColor: colors.forground,
+    backgroundColor: colors.lightBackground,
     width: '25%',
+    height: 30,
     margin: 20,
     justifyContent: 'center',
   },
@@ -62,6 +66,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
 });
+
 export const ButtonStyle = active =>
   StyleSheet.create({
     button: {
@@ -83,13 +88,14 @@ export const cardStyle = (selected, disabled) =>
       flex: 1,
       borderRadius: 20,
       opacity: disabled ? 0.2 : 1,
-      margin: 20,
+      margin: 10,
+      padding: 10,
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: selected ? colors.accent : colors.forground,
     },
     currencyCardText: {
-      fontSize: 20,
+      fontSize: 14,
       color: selected ? colors.forground : colors.lightBackground,
       fontWeight: 'bold',
     },

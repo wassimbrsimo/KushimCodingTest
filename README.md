@@ -36,7 +36,8 @@
   </p>
 </div>
 <div align='center'>
-<img src="images/screenshot1.png" alt="" width="300"  />
+<img src="images/screenshot1.png" alt="" height="600"  />
+<img src="images/screenshot2.png" alt="" height="600"  />
 </div>
 
 <!-- ABOUT THE PROJECT [![Product Name Screen Shot][product-screenshot]](https://example.com)
@@ -45,7 +46,6 @@
 
 
 For this exercise, we need to connect to an API, get data, store them and display them to the user.
-*  Get a free API key on Fixer.io
 *  Create a React Native App
 *  Create a first page to let the user select his currency and the desired currency and input the amount to exchange (USD, EUR, RSD)
 For instance 100 000€ to be USD 118989,00.

@@ -4,6 +4,7 @@ import {BASE_URL, KEY} from '../config/config';
 export async function getWeeklyConversions(from, to, callback) {
   let startDate = new Date();
   let endDate = new Date();
+  // get starting of date 7 days ago
   startDate.setDate(endDate.getDate() - 7);
   const start =
     startDate.getFullYear() +
@@ -11,12 +12,14 @@ export async function getWeeklyConversions(from, to, callback) {
     (startDate.getMonth() + 1) +
     '-' +
     String(startDate.getDate()).padStart(2, '0');
+  // get today's date
   const end =
     endDate.getFullYear() +
     '-' +
     (endDate.getMonth() + 1) +
     '-' +
     String(endDate.getDate()).padStart(2, '0');
+
   axios
     .get(
       BASE_URL +
@@ -40,6 +43,7 @@ export async function getWeeklyConversions(from, to, callback) {
       callback({err: error});
     });
 }
+
 export async function Convert(from, to, value, callback) {
   axios
     .get(

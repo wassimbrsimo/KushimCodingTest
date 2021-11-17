@@ -64,6 +64,7 @@ The project is built using the following frameworks/libraries
 
 <!-- GETTING STARTED -->
 ## Getting Started
+You need to have already [Setup the developement environement](https://reactnative.dev/docs/environment-setup) for react native
 
 Please follow these instructions in order to get started with the project and test it.
 
@@ -74,9 +75,9 @@ Please follow these instructions in order to get started with the project and te
    ```sh
    git clone https://github.com/wassimbrsimo/KushimCodingTest
    ```
-3. Install NPM packages
+3. Move to project directory and install NPM packages
    ```sh
-   npm install
+   cd KushimCodingTest && npm install
    ```
 4. Enter the API key in `Config/config.js`
    ```js
@@ -96,7 +97,9 @@ Please follow these instructions in order to get started with the project and te
 
 ### Run (Android)
 
-Launch an android emulator before running the android build using the following :
+Launch the KushimCodingTest/android project on android studio for the first time and run the project
+
+to build the project using commands make sure you run the android emulator before running the android build using the following :
 
 1. Run Android 
    ```sh
@@ -115,4 +118,5 @@ Launch an android emulator before running the android build using the following 
 
 
 
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/screenshot1.png
+[product-screenshot2]: images/screenshot2.png

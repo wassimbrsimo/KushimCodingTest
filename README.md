@@ -35,8 +35,9 @@
     <br />
   </p>
 </div>
-
-
+<div align='center'>
+<img src="images/screenshot1.png" alt="" width="300"  />
+</div>
 
 <!-- ABOUT THE PROJECT [![Product Name Screen Shot][product-screenshot]](https://example.com)
 -->
